@@ -129,12 +129,8 @@ const paintProperties = () => {
                             //primera
                             navbar.classList.replace("navbar", "navbarRemove");
                             container.classList.replace("container", "containerRemove");
-                            spinner.classList.replace("spinner", "spinner-border");
-                            setTimeout(() => {
-                                spinner.classList.replace("spinner-border", "spinner");
                                 property.classList.replace("propertyRemove","property");
-                                propertySelect(select)
-                            }, 500);
+                                propertySelect(select);
                         })
                     })
         }) 
