@@ -9,9 +9,7 @@ access = document.getElementById("access"),
 navbar = document.getElementById("navbar"),
 container = document.getElementById("container"),
 property = document.getElementById("property"),
-spinner = document.getElementById("spinner"),
-//Archivo JSON siulador de API
-URL = "../Proyecto/properties.json";
+spinner = document.getElementById("spinner");
 
 //al clickear guardara nuestros datos
 rememberme.addEventListener("click", () => {
@@ -102,7 +100,7 @@ const paintNavbar = () => {
 
 const paintProperties = () => {
     //llamamos al archivo json con las propiedades
-    fetch(URL)
+    fetch("./properties.json")
     //convertimos la respuesta en formato json
     .then((respuesta) => respuesta.json())
     //pasamos las propiedades con el parametro informacion
@@ -129,8 +127,12 @@ const paintProperties = () => {
                             //primera
                             navbar.classList.replace("navbar", "navbarRemove");
                             container.classList.replace("container", "containerRemove");
+                            spinner.classList.replace("spinner", "spinner-border");
+                            setTimeout(() => {
+                                spinner.classList.replace("spinner-border", "spinner");
                                 property.classList.replace("propertyRemove","property");
-                                propertySelect(select);
+                                propertySelect(select)
+                            }, 500);
                         })
                     })
         }) 
